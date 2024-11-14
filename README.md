@@ -1,11 +1,13 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/9O4F1fO8)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=16951102&assignment_repo_type=AssignmentRepo)
+
 # Bài kiểm tra giữa kỳ - Bài 1
+
 - **Môn học:** Phát triển ứng dụng di động đa nền tảng 1
 - **Giảng viên:** GVC.TS. Trần Trung Chuyên
-- **Sinh viên:** 
-- **Mã sinh viên:** 
-- **Lớp:**
+- **Sinh viên:** Vũ Minh Hào
+- **Mã sinh viên:** 2221050480
+- **Lớp:** DCCTCT67_05C
 - **Đề tài:** Xây dựng và kiểm thử ứng dụng Quản lý sự kiện
 
 Chào mừng bạn đến với dự án Quản lý sự kiện! Tệp README này sẽ hướng dẫn bạn hoàn thành bài tập.
@@ -39,20 +41,22 @@ Dưới đây là tổng quan về cấu trúc dự án:
 
 Sau khi nhận bài tập từ Github Classroom, hãy sử dụng Visual Studio Code > View > Command Palette > Git: Clone để clone repository về máy của bạn. Hoặc sử dụng dòng lệnh sau:
 
-   ```sh
-   git clone <repository-url>
-   ```
+```sh
+git clone <repository-url>
+```
+
 Trong đó `<repository-url>` là URL của repository bạn vừa nhận được.
 
 2. **Cài đặt các phụ thuộc:**
 
 Sau khi clone repository, mở thư mục dự án trong Visual Studio Code và chạy lệnh sau để cài đặt các phụ thuộc:
 
-   ```sh
-   flutter pub get
-   ```
+```sh
+flutter pub get
+```
 
 Phát triển ứng dụng của bạn bắt đầu bằng cách xem clip hướng dẫn sau:
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_qlCQVKW2jQ?si=tHhBuqRnOGaWR7xB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Chạy kiểm thử
@@ -71,8 +75,8 @@ flutter test
 - **event_model_test.dart:** Kiểm thử lớp `EventModel`.
 - **event_service_test.dart:** Kiểm thử lớp `EventService`.
 - **event_view_test.dart:** Kiểm thử widget `EventView`.
-- **event_detail_view_test.dart:** Kiểm thử widget 
-`EventDetailView`.
+- **event_detail_view_test.dart:** Kiểm thử widget
+  `EventDetailView`.
 
 ### Hoàn thành bài tập
 

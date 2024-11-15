@@ -19,15 +19,12 @@ class EventService {
     return [];
   }
 
-// Ham luu 1 su kien vao LocalStore
-  Future<void> saveEvent(EventModel item) async {
-    // neu id ko to tai thi lay 1 id ngau nhien
-    item.id ??= db.collection(path).doc().id;
-    await db.collection(path).doc(item.id).set(item.toMap());
+  Future<void> saveEvent(EventModel items) async {
+    items.id ??= db.collection(path).doc().id;
+    await db.collection(path).doc(items.id).set(items.toMap());
   }
 
-  // ham xoa 1 su kien tu localSore
-  Future<void> deleteEvent(EventModel item) async {
-    await db.collection(path).doc(item.id).delete();
+  Future<void> deleteEvent(EventModel items) async {
+    await db.collection(path).doc(items.id).delete();
   }
 }

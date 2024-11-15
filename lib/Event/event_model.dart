@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 class EventModel {
   String? id;
@@ -92,15 +94,14 @@ class EventModel {
         subject.hashCode ^
         recurrenceRule.hashCode;
   }
-
-  get fomatedStartTimeString => null;
-
-  get formatedEndTimeString => null;
 }
 
 extension ExtEventModel on EventModel {
-  String get fomatedStartTimesString =>
-      '${startTime.hour}:${startTime.minute}, ${startTime.day} / ${startTime.month}:${startTime.year}';
-  String get fomatedEndTimesString =>
-      '${endTime.hour}:${endTime.minute}, ${endTime.day} / ${endTime.month}:${endTime.year}';
+  String get formatedStartTimeString => _formatTimeString(startTime);
+  String get formatedEndTimeString => _formatTimeString(endTime);
+
+  String _formatTimeString(DateTime datetime) {
+    final DateFormat formatter = DateFormat('H:mm, dd/MM/yyyy');
+    return formatter.format(datetime);
+  }
 }

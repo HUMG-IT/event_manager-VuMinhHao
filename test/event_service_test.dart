@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:event_manager/event/event_service.dart';
-import 'package:event_manager/event/event_model.dart';
+import 'package:event_manager/Event/event_service.dart';
+import 'package:event_manager/Event/event_model.dart';
 
 void main() {
   final eventService = EventService();

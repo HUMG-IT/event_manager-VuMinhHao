@@ -1,11 +1,10 @@
-import 'package:event_manager/event/event_data_source.dart';
-import 'package:event_manager/event/event_detail_view.dart';
-import 'package:event_manager/event/event_service.dart';
+import 'package:event_manager/Event/event_data_source.dart';
+import 'package:event_manager/Event/event_detail_view.dart';
+import 'package:event_manager/Event/event_model.dart';
+import 'package:event_manager/Event/event_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-
-import 'event_model.dart';
 
 class EventView extends StatefulWidget {
   const EventView({super.key});
@@ -16,10 +15,8 @@ class EventView extends StatefulWidget {
 
 class _EventViewState extends State<EventView> {
   final eventService = EventService();
-  // Danh sách sự kiện
   List<EventModel> items = [];
 
-  // Tạo CalendarController để điều khiển SfCalendar
   final calendarController = CalendarController();
 
   @override
@@ -73,39 +70,31 @@ class _EventViewState extends State<EventView> {
           dataSource: EventDataSource(items),
           monthViewSettings: const MonthViewSettings(
               appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
-          // Nhấn giữ vào Cell để thêm sự kiện
           onLongPress: (details) {
-            // Không có sự kiện trong cell
             if (details.targetElement == CalendarElement.calendarCell) {
-              // Tạo 1 đối tượng sự kiện tại thời gian trong lịch theo giao diện
               final newEvent = EventModel(
                   startTime: details.date!,
                   endTime: details.date!.add(const Duration(hours: 1)),
                   subject: 'Sự kiện mới');
-              // Điều hướng và định tuyến bằng cách đưa newEvent vào detail view
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
                   return EventDetailView(event: newEvent);
                 },
               )).then((value) async {
-                // Sau khi pop ở detail view
                 if (value == true) {
                   await loadEvents();
                 }
               });
             }
           },
-          // Chạm vào sự kiện để xem cập nhật
           onTap: (details) {
-            // Khi touch vào sự kiện -> sửa hoặc xóa
-            if (details.targetElement == CalendarElement.appointment) {
+            if (details.targetElement == CalendarElement.calendarCell) {
               final EventModel event = details.appointments!.first;
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) {
                   return EventDetailView(event: event);
                 },
               )).then((value) async {
-                // Sau khi pop ở detail view
                 if (value == true) {
                   await loadEvents();
                 }
@@ -115,7 +104,6 @@ class _EventViewState extends State<EventView> {
     );
   }
 
-  // Hàm lấy icon tương ứng với calendar view
   Icon getCalendarIcon(CalendarView view) {
     switch (view) {
       case CalendarView.day:

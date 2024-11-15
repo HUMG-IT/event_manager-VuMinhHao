@@ -1,4 +1,4 @@
-import 'package:event_manager/Event/event_detal_view.dart';
+import 'package:event_manager/Event/event_detail_view.dart';
 import 'package:event_manager/Event/event_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,7 +25,7 @@ void main() {
         ],
         supportedLocales: const [Locale('en'), Locale('vi')],
         locale: const Locale('vi'),
-        home: EventDetalView(event: newEvent),
+        home: EventDetailView(event: newEvent),
       ),
     );
 
@@ -37,6 +37,6 @@ void main() {
     await tester.pumpAndSettle();
 
     // Kiểm tra xem Navigator đã pop hay chưa (tức là trở về màn hình trước)
-    expect(find.byType(EventDetalView), findsNothing);
+    expect(find.byType(EventDetailView), findsNothing);
   });
 }
